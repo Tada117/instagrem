@@ -1,10 +1,13 @@
-import logo from "assets/text-logo.svg";
+import ThemeContextWrapper from "context/ThemeContextWrapper";
+import Header from "layouts/Header";
 
 function App() {
   return (
-    <div>
-      <img src={logo} alt="" />
-    </div>
+    <ThemeContextWrapper>
+      <div className="dark:bg-dark-800 bg-light-100 min-h-screen">
+        <Header />
+      </div>
+    </ThemeContextWrapper>
   );
 }
 
