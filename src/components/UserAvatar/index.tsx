@@ -1,5 +1,5 @@
-import classNames from "classnames";
 
+import classNames from "classnames";
 interface Story {
   author: string;
   media?: [{ url: string; date: Date }];
@@ -7,6 +7,7 @@ interface Story {
 
 interface UserAvatarProps {
   stories?: Story[];
+
   size?: "small" | "medium";
   avatarUrl?: string;
 }
@@ -39,6 +40,7 @@ const UserAvatar = ({ stories, size }: UserAvatarProps) => {
           }
         )}
       />
+
     </div>
   );
 };
