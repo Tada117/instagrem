@@ -9,7 +9,12 @@ module.exports = {
         "dark-800": "#121212",
         "dark-700": "#1e1e1e",
         "light-100": "#f9fbfc",
-        gray: "#c4c4c4",
+        gray: "#878688",
+      },
+      screens: {
+        sm: "576px",
+        md: "1024px",
+        lg: "1440px",
       },
     },
   },
