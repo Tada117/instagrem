@@ -6,7 +6,7 @@ type Props = {};
 
 const Post = (props: Props) => {
   return (
-    <div className="flex gap-8 rounded-3xl bg-dark-700 p-4 md:p-6 lg:p-10">
+    <div className="bg-primary flex gap-8 rounded-3xl p-4 md:p-6 lg:p-10">
       <div className="flex basis-1/3 flex-col gap-3">
         <PostHeader />
         <PostCaption />
