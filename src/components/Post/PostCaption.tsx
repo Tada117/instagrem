@@ -5,7 +5,7 @@ type Props = {};
 
 const PostCaption = (props: Props) => {
   return (
-    <div className="text-sm font-extralight text-light-100">
+    <div className="text-light-100 max-w-[470px] p-3 text-sm font-extralight">
       <ReadMore
         text="!loremLorem ipsum dolor sit amet, consectetur adipiscing elit. 
         Morbi in ante vitae ligula lobortis bibendum in scelerisque nisl. 
