@@ -56,7 +56,10 @@ const Navigation = (props: Props) => {
         <img src={logo} alt="logo" />
       </div>
       {menu.map((item) => (
-        <div className="my-1 flex cursor-pointer items-center gap-4 rounded-3xl p-3 hover:bg-bg-secondary">
+        <div
+          key={item?.title}
+          className="my-1 flex cursor-pointer items-center gap-4 rounded-3xl p-3 hover:bg-bg-secondary"
+        >
           <div className="flex">{item.icon}</div>
           <div className="text-dark-text-primary">{item.title}</div>
         </div>

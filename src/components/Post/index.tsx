@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import PostCaption from "./PostCaption";
 import PostHeader from "./PostHeader";
+import PostComment from "./PostComment";
+import PostLikes from "./PostLikes";
+import PostButtons from "./PostButtons";
 
 type Props = {
   imageUrl: string;
 };
 
-const POST_IMG_WIDTH = 470;
-
 const Post = (props: Props) => {
   const { imageUrl } = props;
   const [imgHeight, setImgHeight] = useState(0);
+  const POST_MAX_WIDTH = 470;
 
   const setImageSize = (imageUrl: string): void => {
     let newHeight = 0;
@@ -18,7 +20,7 @@ const Post = (props: Props) => {
     img.src = imageUrl;
     img.onload = () => {
       const ratio = img.height / img.width;
-      newHeight = Math.round(POST_IMG_WIDTH * ratio);
+      newHeight = Math.round(POST_MAX_WIDTH * ratio);
       setImgHeight(newHeight);
     };
     img.onerror = (err) => {
@@ -31,13 +33,15 @@ const Post = (props: Props) => {
   }, [imageUrl]);
 
   return (
-    <>
+    <div
+      className={`max-w-[${POST_MAX_WIDTH}px] rounded-sm border border-solid border-seperator`}
+    >
       <div className="flex flex-col rounded-md bg-bg-primary">
         <div className="p-3">
           <PostHeader />
         </div>
         <div
-          className="relative h-0 w-[470px] overflow-hidden"
+          className="relative h-0 w-full overflow-hidden"
           style={{ paddingBottom: imgHeight }}
         >
           <img
@@ -46,9 +50,14 @@ const Post = (props: Props) => {
             alt=""
           />
         </div>
-        <PostCaption />
+        <div className="flex flex-col gap-2 p-3">
+          <PostButtons />
+          <PostLikes />
+          <PostCaption />
+          <PostComment />
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -15,6 +15,7 @@ module.exports = {
         "blue-btn": "#0094f6",
         "blue-btn-hover": "#1877f2",
         "blue-btn-disable": "#b3dbff",
+        seperator: "rgb(var(--seperator) / <alpha-value>)",
       },
       screens: {
         sm: "576px",
