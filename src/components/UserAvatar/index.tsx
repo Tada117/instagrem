@@ -29,10 +29,10 @@ const UserAvatar = ({ stories, size }: UserAvatarProps) => {
       )}
     >
       <img
-        src="https://www.purina.co.uk/sites/default/files/2020-12/Dog_1098119012_Teaser.jpg"
+        src="https://source.unsplash.com/random"
         alt=""
         className={classNames(
-          "rounded-full border-2 border-light-100 object-cover dark:border-dark-700",
+          "border-light-100 dark:border-dark-700 rounded-full border-2 object-cover",
           {
             "h-6 w-6": size === "small",
             "h-10 w-10": size === "medium",

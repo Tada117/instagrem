@@ -1,25 +1,32 @@
-import * as SolidIcons from "@heroicons/react/24/solid";
 import * as OutlineIcons from "@heroicons/react/24/outline";
+import * as SolidIcons from "@heroicons/react/24/solid";
 
 type IconName = keyof typeof OutlineIcons;
+type Icon = React.ComponentProps<"svg"> & { title?: string; titleId?: string };
 
-interface Props {
+interface Props extends Icon {
   icon: IconName;
   color?: string;
   size?: number;
   outline?: boolean;
   styles?: string;
-  onClick?: (params?: any) => any;
 }
 
-export const HeroIcon = (props: Props): JSX.Element => {
-  const { icon, color, size, outline, styles = false, onClick } = props;
+export const HeroIcon: React.FC<Props> = ({
+  icon,
+  color,
+  size,
+  outline,
+  styles,
+  ...rest
+}: Props) => {
+  // const  props;
   const { ...icons } = outline ? OutlineIcons : SolidIcons;
   // @ts-ignore
-  const Icon: JSX.Element = icons[icon];
+  const Icon: React.ReactElement = icons[icon];
 
   const classes = [
-    `${color ? `stroke-${color}` : "stroke-text-primary"}`,
+    `${color ? "stroke-text-secondary" : "stroke-text-primary"}`,
     `h-${size ? size : 6}`,
     `w-${size ? size : 6}`,
     styles,
@@ -27,6 +34,6 @@ export const HeroIcon = (props: Props): JSX.Element => {
 
   return (
     // @ts-ignore
-    <Icon className={classes.join(" ")} onClick={onClick} />
+    <Icon className={classes.join(" ")} {...rest} />
   );
 };

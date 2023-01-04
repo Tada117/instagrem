@@ -6,7 +6,7 @@ type Props = {};
 
 const PostButtons = (props: Props) => {
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-3">
       <HeroIcon icon="HeartIcon" outline />
       <HeroIcon icon="ChatBubbleBottomCenterIcon" outline />
       <HeroIcon icon="ShareIcon" outline />

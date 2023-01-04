@@ -8,11 +8,11 @@ import PostButtons from "./PostButtons";
 type Props = {
   imageUrl: string;
 };
+const POST_MAX_WIDTH = 470;
 
 const Post = (props: Props) => {
   const { imageUrl } = props;
   const [imgHeight, setImgHeight] = useState(0);
-  const POST_MAX_WIDTH = 470;
 
   const setImageSize = (imageUrl: string): void => {
     let newHeight = 0;
@@ -33,9 +33,7 @@ const Post = (props: Props) => {
   }, [imageUrl]);
 
   return (
-    <div
-      className={`max-w-[${POST_MAX_WIDTH}px] rounded-sm border border-solid border-seperator`}
-    >
+    <div className="max-w-post rounded-sm border border-solid border-seperator">
       <div className="flex flex-col rounded-md bg-bg-primary">
         <div className="p-3">
           <PostHeader />

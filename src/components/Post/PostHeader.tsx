@@ -15,7 +15,7 @@ const PostHeader = (props: Props) => {
           stories={[{ author: "Tu", media: [{ url: "", date: new Date() }] }]}
         />
         <div className="flex flex-col text-sm font-semibold text-text-primary">
-          a_tunguyen
+          user_0375
         </div>
       </div>
 

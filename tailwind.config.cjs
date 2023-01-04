@@ -22,6 +22,9 @@ module.exports = {
         md: "1024px",
         lg: "1440px",
       },
+      maxWidth: {
+        post: "470px",
+      },
     },
   },
   darkMode: "class",
