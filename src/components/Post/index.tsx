@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
-import PostCaption from "./PostCaption";
-import PostHeader from "./PostHeader";
-import PostComment from "./PostComment";
-import PostLikes from "./PostLikes";
+import { ReactElement, useEffect, useState } from "react";
 import PostButtons from "./PostButtons";
+import PostCaption from "./PostCaption";
+import PostComment from "./PostComment";
+import PostHeader from "./PostHeader";
+import PostLikes from "./PostLikes";
 
-type Props = {
+interface Props {
   imageUrl: string;
-};
+}
 const POST_MAX_WIDTH = 470;
 
-const Post = (props: Props) => {
+const Post = (props: Props): ReactElement => {
   const { imageUrl } = props;
   const [imgHeight, setImgHeight] = useState(0);
 

@@ -22,18 +22,20 @@ export const HeroIcon: React.FC<Props> = ({
 }: Props) => {
   // const  props;
   const { ...icons } = outline ? OutlineIcons : SolidIcons;
-  // @ts-ignore
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   const Icon: React.ReactElement = icons[icon];
 
   const classes = [
     `${color ? "stroke-text-secondary" : "stroke-text-primary"}`,
-    `h-${size ? size : 6}`,
-    `w-${size ? size : 6}`,
+    `h-${size || 6}`,
+    `w-${size || 6}`,
     styles,
   ];
 
   return (
-    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     <Icon className={classes.join(" ")} {...rest} />
   );
 };

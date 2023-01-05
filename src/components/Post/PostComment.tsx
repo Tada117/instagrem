@@ -1,8 +1,6 @@
-import UserAvatar from "components/UserAvatar";
+import { FC } from "react";
 
-type Props = {};
-
-const PostComment = (props: Props) => {
+const PostComment: FC = () => {
   return (
     <div className="flex items-center gap-1 text-sm text-text-primary">
       <span className="font-semibold">tunguyen</span>
