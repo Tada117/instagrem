@@ -1,9 +1,8 @@
-import { CogIcon } from "@heroicons/react/24/outline";
-import { BeakerIcon } from "@heroicons/react/24/solid";
 import Post from "components/Post";
 import PageWrapper from "layouts/PageWrapper";
 
-type Props = {};
+interface Props {}
+
 const imageUrl = [
   " https://source.unsplash.com/random",
   "https://www.ontarioparks.com/parksblog/wp-content/uploads/2020/02/Quetico_Backcountry_Winter_Camping-825x510.jpg",
@@ -12,16 +11,18 @@ const imageUrl = [
   "https://images.unsplash.com/photo-1534644107580-3a4dbd494a95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
 ];
 
-const HomePage = (props: Props) => {
+const Home: React.FC<Props> = () => {
   return (
     <PageWrapper>
-      <div className="flex flex-col gap-4">
-        {imageUrl.map((url, index) => (
-          <Post imageUrl={url} key={index} />
-        ))}
+      <div className="flex justify-center ">
+        <div className="flex flex-col gap-4">
+          {imageUrl.map((url, index) => (
+            <Post imageUrl={url} key={index} />
+          ))}
+        </div>
       </div>
     </PageWrapper>
   );
 };
 
-export default HomePage;
+export default Home;
