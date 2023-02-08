@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import React from "react";
 
 interface Story {
   author: string;
@@ -16,8 +17,8 @@ const defaultProps: UserAvatarProps = {
   size: "medium",
 };
 
-const UserAvatar = ({ stories, size }: UserAvatarProps) => {
-  const onAvatarClick = () => {};
+const UserAvatar: React.FC = ({ stories, size }: UserAvatarProps) => {
+  const onAvatarClick = (): void => {};
   return (
     <div
       onClick={onAvatarClick}
@@ -25,7 +26,7 @@ const UserAvatar = ({ stories, size }: UserAvatarProps) => {
         "w-fit min-w-fit cursor-pointer rounded-full bg-gradient-to-tr from-amber-500 to-fuchsia-700 p-0.5",
         {
           "bg-none": Array.isArray(stories) && stories?.length === 0,
-        }
+        },
       )}
     >
       <img
@@ -36,7 +37,7 @@ const UserAvatar = ({ stories, size }: UserAvatarProps) => {
           {
             "h-6 w-6": size === "small",
             "h-10 w-10": size === "medium",
-          }
+          },
         )}
       />
     </div>

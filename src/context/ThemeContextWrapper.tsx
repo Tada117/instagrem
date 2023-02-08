@@ -9,7 +9,7 @@ const ThemeContextWrapper: FC<Props> = ({ children }) => {
   const currentTheme: string | null = localStorage.getItem("theme");
   const [theme, setTheme] = useState(currentTheme || THEME.light);
 
-  const changeTheme = (newTheme: any) => {
+  const changeTheme = (newTheme: `${THEME}`): void => {
     setTheme(newTheme);
 
     newTheme === THEME.light

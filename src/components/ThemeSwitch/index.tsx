@@ -10,7 +10,7 @@ const ThemeSwitch: FC = () => {
 
   return (
     <button
-      className="bg-white dark:bg-black text-black dark:text-white border-2 p-4"
+      className="border-2 bg-white p-4 text-black dark:bg-black dark:text-white"
       onClick={onSwitchTheme}
     >
       Change theme

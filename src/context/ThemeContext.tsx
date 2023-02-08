@@ -13,7 +13,7 @@ export interface ThemeContextProps {
 
 const defaultValue: ThemeContextProps = {
   theme: THEME.light,
-  changeTheme: (theme) => {},
+  changeTheme: () => {},
 };
 
 const ThemeContext = createContext(defaultValue);

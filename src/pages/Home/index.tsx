@@ -1,4 +1,6 @@
+import Modal from "components/Modal";
 import Post from "components/Post";
+import useModal from "hooks/useModal";
 import PageWrapper from "layouts/PageWrapper";
 
 interface Props {}

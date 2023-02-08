@@ -4,6 +4,7 @@ import PostCaption from "./PostCaption";
 import PostComment from "./PostComment";
 import PostHeader from "./PostHeader";
 import PostLikes from "./PostLikes";
+import useModal from "hooks/useModal";
 
 interface Props {
   imageUrl: string;
@@ -13,6 +14,8 @@ const POST_MAX_WIDTH = 470;
 const Post = (props: Props): ReactElement => {
   const { imageUrl } = props;
   const [imgHeight, setImgHeight] = useState(0);
+
+  const { isOpen, toggle } = useModal();
 
   const setImageSize = (imageUrl: string): void => {
     let newHeight = 0;
@@ -36,7 +39,7 @@ const Post = (props: Props): ReactElement => {
     <div className="max-w-post rounded-sm border border-solid border-seperator">
       <div className="flex flex-col rounded-md bg-bg-primary">
         <div className="p-3">
-          <PostHeader />
+          <PostHeader toggleOptions={toggle} isOpen={isOpen} />
         </div>
         <div
           className="relative h-0 w-full overflow-hidden"
