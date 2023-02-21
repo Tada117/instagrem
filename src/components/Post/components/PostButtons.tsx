@@ -1,10 +1,8 @@
-import { HeartIcon } from "@heroicons/react/24/outline";
 import { HeroIcon } from "components/HeroIcons";
-import React, { useState } from "react";
 
-type Props = {};
+interface PostButtonsProps {}
 
-const PostButtons = (props: Props) => {
+const PostButtons = (props: PostButtonsProps) => {
   return (
     <div className="flex gap-3">
       <HeroIcon icon="HeartIcon" outline />

@@ -1,9 +1,6 @@
-import Modal from "components/Modal";
 import Post from "components/Post";
-import useModal from "hooks/useModal";
 import PageWrapper from "layouts/PageWrapper";
-
-interface Props {}
+interface PostProps {}
 
 const imageUrl = [
   " https://source.unsplash.com/random",
@@ -13,17 +10,20 @@ const imageUrl = [
   "https://images.unsplash.com/photo-1534644107580-3a4dbd494a95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80",
 ];
 
-const Home: React.FC<Props> = () => {
+const Home: React.FC<PostProps> = () => {
+  // fetch post api
   return (
-    <PageWrapper>
-      <div className="flex justify-center ">
-        <div className="flex flex-col gap-4">
-          {imageUrl.map((url, index) => (
-            <Post imageUrl={url} key={index} />
-          ))}
+    <>
+      <PageWrapper>
+        <div className="flex justify-center ">
+          <div className="flex flex-col gap-4">
+            {imageUrl.map((url, index) => (
+              <Post imageUrl={url} key={index} />
+            ))}
+          </div>
         </div>
-      </div>
-    </PageWrapper>
+      </PageWrapper>
+    </>
   );
 };
 

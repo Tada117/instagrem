@@ -1,21 +1,19 @@
-import { ReactElement, useEffect, useState } from "react";
-import PostButtons from "./PostButtons";
-import PostCaption from "./PostCaption";
-import PostComment from "./PostComment";
-import PostHeader from "./PostHeader";
-import PostLikes from "./PostLikes";
-import useModal from "hooks/useModal";
+import { useEffect, useState } from "react";
+import PostButtons from "./components/PostButtons";
+import PostCaption from "./components/PostCaption";
+import PostComment from "./components/PostComment";
+import PostHeader from "./components/PostHeader";
+import PostLikes from "./components/PostLikes";
+import PostModalProvider from "./context/ModalProvider";
+import PostModals from "./components/Modals";
 
-interface Props {
+interface PostProps {
   imageUrl: string;
 }
 const POST_MAX_WIDTH = 470;
 
-const Post = (props: Props): ReactElement => {
-  const { imageUrl } = props;
+const Post: React.FC<PostProps> = ({ imageUrl }: PostProps) => {
   const [imgHeight, setImgHeight] = useState(0);
-
-  const { isOpen, toggle } = useModal();
 
   const setImageSize = (imageUrl: string): void => {
     let newHeight = 0;
@@ -36,29 +34,32 @@ const Post = (props: Props): ReactElement => {
   }, [imageUrl]);
 
   return (
-    <div className="max-w-post rounded-sm border border-solid border-seperator">
-      <div className="flex flex-col rounded-md bg-bg-primary">
-        <div className="p-3">
-          <PostHeader toggleOptions={toggle} isOpen={isOpen} />
-        </div>
-        <div
-          className="relative h-0 w-full overflow-hidden"
-          style={{ paddingBottom: imgHeight }}
-        >
-          <img
-            className="absolute top-0 right-0 bottom-0 left-0 h-full w-full object-cover"
-            src={imageUrl}
-            alt=""
-          />
-        </div>
-        <div className="flex flex-col gap-2 p-3">
-          <PostButtons />
-          <PostLikes />
-          <PostCaption />
-          <PostComment />
+    <PostModalProvider>
+      <PostModals />
+      <div className="max-w-post rounded-sm border border-solid border-seperator">
+        <div className="flex flex-col rounded-md bg-bg-primary">
+          <div className="p-3">
+            <PostHeader />
+          </div>
+          <div
+            className="relative h-0 w-full overflow-hidden"
+            style={{ paddingBottom: imgHeight }}
+          >
+            <img
+              className="absolute top-0 right-0 bottom-0 left-0 h-full w-full object-cover"
+              src={imageUrl}
+              alt=""
+            />
+          </div>
+          <div className="flex flex-col gap-2 p-3">
+            <PostButtons />
+            <PostLikes />
+            <PostCaption />
+            <PostComment />
+          </div>
         </div>
       </div>
-    </div>
+    </PostModalProvider>
   );
 };
 
