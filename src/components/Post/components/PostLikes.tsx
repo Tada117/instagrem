@@ -1,9 +1,20 @@
-import React from "react";
+import { Like } from "../types";
 
-type Props = {};
+type PostLikesProps = {
+  likes: Like[];
+};
 
-const PostLikes = (props: Props) => {
-  return <div className="text-sm font-semibold">999 likes</div>;
+const PostLikes = ({ likes }: PostLikesProps) => {
+  const handleViewLikes = () => {
+    // Dislay list of liked user modal
+  };
+
+  return (
+    <div
+      className="cursor-pointer text-sm font-semibold"
+      onClick={handleViewLikes}
+    >{`${likes.length} likes`}</div>
+  );
 };
 
 export default PostLikes;

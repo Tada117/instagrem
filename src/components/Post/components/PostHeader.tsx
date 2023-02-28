@@ -4,10 +4,13 @@ import { PostModalKeys } from "constants/ModalKey";
 import ThemeContext, { THEME } from "context/ThemeContext";
 import { useContext } from "react";
 import { PostModalContext } from "../context/ModalProvider";
+import { User } from "types/user";
 
-interface PostHeaderProps {}
+interface PostHeaderProps {
+  user: User;
+}
 
-const PostHeader: React.FC<PostHeaderProps> = () => {
+const PostHeader: React.FC<PostHeaderProps> = ({ user }: PostHeaderProps) => {
   const { theme } = useContext(ThemeContext);
   const { openModal } = useContext(PostModalContext);
 
@@ -15,9 +18,9 @@ const PostHeader: React.FC<PostHeaderProps> = () => {
     <>
       <div className="flex flex-row items-center">
         <div className="flex flex-1 items-center gap-2">
-          <UserAvatar />
+          <UserAvatar src={user.avatarUrl} size="medium" hasStory />
           <div className="flex flex-col text-sm font-semibold text-text-primary">
-            user_0375
+            {user.username}
           </div>
         </div>
 

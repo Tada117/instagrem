@@ -1,4 +1,3 @@
-import PostModalProvider from "components/Post/context/ModalProvider";
 import ThemeContextWrapper from "context/ThemeContextWrapper";
 import { BrowserRouter } from "react-router-dom";
 import { AppRouter } from "routes";

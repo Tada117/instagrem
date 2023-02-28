@@ -1,23 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-type Props = {
+interface ReadMoreProps {
   text: string;
-};
+}
 
-const ReadMore = (props: Props) => {
-  const { text } = props;
-  const [isReadMore, setIsReadMore] = useState(true);
+const ReadMore = ({ text }: ReadMoreProps) => {
+  const [isReadMore, setIsReadMore] = useState(false);
+  const [displayText, setDisplayText] = useState(text.slice(0, 75));
+
+  useEffect(() => {
+    if (text.length > 75) {
+      setIsReadMore(true);
+    }
+  }, [text]);
+
   const toggleReadMore = () => {
-    setIsReadMore(!isReadMore);
+    displayText.length > 75
+      ? setDisplayText(text.slice(0, 75))
+      : setDisplayText(text);
   };
+
   return (
     <div>
-      {isReadMore ? text.slice(0, 75) + "..." : text}
-      <span
-        onClick={toggleReadMore}
-        className="cursor-pointer font-medium text-gray"
-      >
-        {isReadMore ? "(read more)" : " (show less)"}
+      <span className="text-gray cursor-pointer font-medium">
+        {displayText}
+        {isReadMore ? (
+          <span
+            className="font-light italic text-ig-blue hover:text-ig-blue-hover"
+            onClick={toggleReadMore}
+          >
+            {displayText.length <= 75 ? " ...(read more)" : " (show less)"}
+          </span>
+        ) : null}
       </span>
     </div>
   );
