@@ -1,5 +1,4 @@
 import ReadMore from "components/ReadMore";
-import React from "react";
 
 interface PostCaptionProps {
   caption: string;

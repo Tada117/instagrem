@@ -1,3 +1,4 @@
+import CommentInput from "./components/CommentInput";
 import PostModals from "./components/Modals";
 import PostBody from "./components/PostBody";
 import PostButtons from "./components/PostButtons";
@@ -18,7 +19,7 @@ const Post: React.FC<PostProps> = ({ post }: PostProps) => {
     <PostModalProvider>
       <PostModals />
       <div className={style.wrapper}>
-        <div className="flex flex-col rounded-md bg-bg-primary">
+        <div className="bg-bg-primary flex flex-col rounded-md">
           <div className="p-3">
             <PostHeader user={post.user} />
           </div>
@@ -28,6 +29,7 @@ const Post: React.FC<PostProps> = ({ post }: PostProps) => {
             <PostLikes likes={post.likes} />
             <PostCaption caption={post.caption} />
             <PostComment />
+            <CommentInput />
           </div>
         </div>
       </div>
