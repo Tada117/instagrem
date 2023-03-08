@@ -15,6 +15,9 @@ const PostBody: React.FC<PostBodyProps> = ({ imageUrls }: PostBodyProps) => {
     img.onload = () => {
       const ratio = img.height / img.width;
       newHeight = Math.round(POST_MAX_WIDTH * ratio);
+      if (newHeight > 550) {
+        newHeight = 550;
+      }
       setImgHeight(newHeight);
     };
     img.onerror = (err) => {

@@ -19,7 +19,7 @@ const Post: React.FC<PostProps> = ({ post }: PostProps) => {
     <PostModalProvider>
       <PostModals />
       <div className={style.wrapper}>
-        <div className="bg-bg-primary flex flex-col rounded-md">
+        <div className="flex flex-col rounded-md bg-ig-primary">
           <div className="p-3">
             <PostHeader user={post.user} />
           </div>
