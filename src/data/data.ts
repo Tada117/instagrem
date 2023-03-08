@@ -1,4 +1,4 @@
-import { IPost } from "components/Post/types";
+import { Post } from "components/Post/types";
 import { User } from "types/user";
 
 const users: User[] = [
@@ -32,7 +32,7 @@ const users: User[] = [
   },
 ];
 
-export const posts: IPost[] = [
+export const posts: Post[] = [
   {
     id: "post1",
     userId: "user2",

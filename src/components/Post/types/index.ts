@@ -9,13 +9,7 @@ export interface Post {
   createdTime: number;
   imageUrls: string[];
   likes: Like[];
-  comments: {
-    id: string;
-    userId: string;
-    user: User;
-    text: string;
-    createdTime: number;
-  }[];
+  comments: Comment[];
 }
 
 export interface Like {
@@ -23,4 +17,14 @@ export interface Like {
   userId: string;
   user: User;
   createdTime: number;
+}
+
+export interface Comment {
+  id: string;
+  userId: string;
+  user: User;
+  text: string;
+  createdTime: number;
+  parentId?: number;
+  children?: Comment[];
 }

@@ -1,11 +1,28 @@
-import { FC } from "react";
+import { Comment } from "../types";
 
-const PostComment: FC = () => {
+interface PostCommentProps {
+  comments: Comment[];
+}
+const PostComment: React.FC<PostCommentProps> = ({
+  comments,
+}: PostCommentProps) => {
   return (
-    <div className="flex items-center gap-1 text-sm text-text-primary">
-      <span className="font-semibold">tunguyen</span>
-      <span className="font-normal">Very good</span>
-    </div>
+    <>
+      {comments.length > 1 ? (
+        <button className="flex text-sm font-normal text-gray-400">
+          View {comments.length} comments
+        </button>
+      ) : null}
+      {/* {comments.map((comment) => (
+        <div
+          key={comment.id}
+          className="text-text-primary flex items-center gap-1 text-sm"
+        >
+          <span className="font-semibold">{comment.user.username}</span>
+          <span className="font-normal">{comment.text}</span>
+        </div>
+      ))} */}
+    </>
   );
 };
 

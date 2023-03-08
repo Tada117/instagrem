@@ -28,7 +28,7 @@ const Post: React.FC<PostProps> = ({ post }: PostProps) => {
             <PostButtons />
             <PostLikes likes={post.likes} />
             <PostCaption caption={post.caption} />
-            <PostComment />
+            <PostComment comments={post.comments} />
             <CommentInput />
           </div>
         </div>
